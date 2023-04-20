@@ -1,0 +1,368 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* pseudo-class is used to define global variables for the document. */
+/* variable -- defined can be used repetitively */
+
+:root {
+    --background: linear-gradient(to top, rgb(239, 199, 255), rgba(71, 21, 99, 0.881));
+    --perfect-color: rgba(255, 101, 229, .8);
+    --good-color: rgba(82, 236, 51, .8);
+    --bad-color: rgba(207, 53, 53, .8);
+    --miss-color: rgba(199, 184, 184, .8);
+    --combo2-color: rgba(255, 140, 0, 0.894);
+    --combo4-color: rgba(255, 0, 0, 0.8);
+    --score-color: rgba(240, 202, 36, .8);
+
+    /* --hit-effect: linear-gradient(to bottom, rgba(255, 255, 255, .5), rgba(255, 255, 255, .3)); */
+    --hit-color: rgba(255, 158, 249, 0.75);
+    --key-red: rgb(255, 0, 136);
+    --key-blue: rgb(2, 120, 255);
+    --key-orange: rgb(255, 106, 0);
+    --keypress-red: linear-gradient(to top, rgba(255, 0, 136, .6), rgba(254, 45, 87, 0));
+    --keypress-blue: linear-gradient(to top, rgba(28, 121, 228, .6), rgba(28, 121, 228, 0));
+    --keypress-orange: linear-gradient(to top, rgba(240, 128, 60, .6), rgba(240, 128, 60, 0));
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    display: flex;
+    flex-direction: row;
+    font-family: 'Electrolize';
+    color: white
+}
+
+
+.half {
+    flex: 1;
+    /* make the sub-elements take up equal width */
+    display: flex;
+    height: 100%;
+}
+
+
+.game {
+    background: black;
+    overflow: hidden;
+
+}
+
+/* menu element css */
+.menu {
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow:hidden;
+    z-index: 1;
+
+}
+
+
+#result_menu {
+    background-color: purple;
+    text-align: center;
+    justify-content: space-evenly;
+    z-index: 2;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.menu_element {
+    color: white;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+
+
+#repo {
+    text-align: right;
+    font-size: 100%;
+    text-decoration: underline;
+    margin: 10px;
+    flex:1;
+}
+
+#music_name {
+    font-size: 150%;
+    flex:1;
+}
+
+#profile_image {
+    width: 100%;
+    flex:1;
+}
+
+#composer {
+    margin:  0 0 0;
+    flex:1;
+}
+
+#start {
+    font-size: 200%;
+    flex:1;
+}
+
+#speed {
+    font-size: 200%;
+    flex:1;
+}
+
+#score_display {
+   color: black;
+   width: 100%;
+   text-align: left;
+   font-family: monospace;
+   white-space: pre-wrap;
+   flex:1;
+
+}
+
+
+.speed_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.btn_selected {
+    background-color: black;
+}
+
+.speed_button_element {
+    /* margin: 15%; */
+    justify-content: space-between;
+    transition-duration: 0.4s;
+    font-size: 120%;
+    /* width: 20%; */
+    border: 2px solid white;
+    padding: 2%;
+    margin: 5%;
+}
+
+.speed_button_element:hover {
+    background-color: #320c5e;
+    /* Green */
+    color: white;
+}
+
+#start:hover {
+    background-color: #320c5e;
+    /* Green */
+    color: white;
+}
+
+#backmain:hover {
+    background-color: #320c5e;
+    /* Green */
+    color: white;
+}
+
+.heart {
+    color: red
+}
+
+
+/* game element css */
+
+.game {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.score_display {
+    z-index: 2;
+    position: absolute;
+}
+
+
+.track_container {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    width: 100%;
+    flex: 8;
+    z-index: 1;
+}
+
+.track:not(:last-child) {
+    border-right: 1px solid grey;
+}
+
+.track {
+    flex: 0 0 calc(100% / 3);
+}
+
+.note {
+    position: absolute;
+    width: calc(100% / 3);
+    height: 2%;
+    animation-name: moveDown;
+    animation-timing-function: linear;
+    overflow: hidden;
+}
+
+
+.key_press_container {
+    display: flex;
+    flex-direction: row;
+    height: 20%;
+    width: 100%;
+    /* flex: 1; */
+    z-index: 2;
+    position: absolute;
+    top: 60%;
+
+}
+
+.score_container {
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+
+    font-size: 200%;
+    text-align:center;
+    height: 20%;
+    width: 100%;
+}
+
+.combo_container {
+    z-index: 3;
+    position: absolute;
+    top: 60%;
+
+    font-size: 200%;
+    text-align:center;
+    height: 20%;
+    width: 100%;
+}
+
+
+
+.key_press {
+    flex: 0 0 calc(100% / 3);
+    text-align: center;
+    font-size: 120%;
+}
+
+.key_container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    flex: 2
+}
+
+
+#keypresss {
+    background: var(--keypress-red);
+}
+
+#keypressspace {
+    background: var(--keypress-blue);
+}
+
+#keypressk {
+    background: var(--keypress-orange);
+}
+
+.hidden {
+    background:transparent !important; 
+}
+
+.key {
+    flex: 0 0 calc(100% / 3);
+    text-align: center;
+    font-size: 120%;
+    line-height: 9;
+}
+
+#keys {
+    background-color: var(--key-red);
+}
+
+#keyspace {
+    background-color: var(--key-blue);
+}
+
+#keyk {
+    background-color: var(--key-orange);
+}
+
+
+@keyframes moveDown {
+    0% {
+        top: 0;
+    }
+/* 
+    98% {
+        top: 100%;
+        opacity: 1;
+    } */
+
+    100% {
+        top: 80%;
+    }
+}
+
+.slowhidden{
+    opacity: 0;
+}
+
+.score_container{
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+#perfect {
+    color: var(--perfect-color);
+  }
+  
+#good {
+color: var(--good-color);
+
+}
+
+#bad {
+color: var(--bad-color);
+
+}
+
+#miss {
+color: var(--miss-color);
+
+}
+
+#combo2 {
+color: var(--combo2-color);
+
+}
+
+#combo4 {
+    color: var(--combo4-color);
+
+}
+
+#score {
+    
+color: var(--score-color);
+}
+

@@ -1,5 +1,5 @@
 # songrong-song.github.io
-User Story for APP1-2 weeks
+User Story for GA APP1-2 week homework
 Author: Songrong
 
 This project is inspired by the popular mobile music rhythm game ‘CYTUSII’. The song I selected was LILAC FOR ANABEL from CYTUSII, a sweet song with strong beats. It aims to provide users with an engaging and relaxing gaming experience while allowing them to improve their tapping skills over time.

@@ -63,7 +63,7 @@ const initialize_layout = () => {
 
   // 3. Profile Pic
   $(".menu").append($("<img>").attr('id', "profile_image").addClass("menu_element"));
-  $("#profile_image").attr("src", "./Lilac_for_Anabel.png")
+  $("#profile_image").attr("src", "Lilac_for_Anabel.png")
   $("#profile_image").attr("alt", "LILAC FOR ANABEL")
 
   //4. Composer

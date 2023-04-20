@@ -63,7 +63,7 @@ const initialize_layout = () => {
 
   // 3. Profile Pic
   $(".menu").append($("<img>").attr('id', "profile_image").addClass("menu_element"));
-  $("#profile_image").attr("src", "https://static.wikia.nocookie.net/cytus/images/d/dd/Lilac_for_Anabel.png/revision/latest/scale-to-width-down/1000?cb=20200125220503")
+  $("#profile_image").attr("src", "Lilac_for_Anabel.png")
   $("#profile_image").attr("alt", "LILAC FOR ANABEL")
 
   //4. Composer
